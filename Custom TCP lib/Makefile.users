@@ -1,0 +1,18 @@
+.PHONY: all clean run_usr1 run_usr2
+
+all: usr1 usr2
+
+usr1: user1.c libmsocket.a
+	@gcc user1.c -o usr1 -L. -lmsocket -lpthread
+
+usr2: user2.c libmsocket.a
+	@gcc user2.c -o usr2 -L. -lmsocket -lpthread
+
+run_usr1: usr1
+	@./usr1
+
+run_usr2: usr2
+	@./usr2
+
+clean: 
+	@rm -f usr1 usr2

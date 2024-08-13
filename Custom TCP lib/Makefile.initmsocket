@@ -1,0 +1,12 @@
+.PHONY: all clean run_init
+
+all: initmsocket
+
+initmsocket: initmsocket.c msocket.h
+	@gcc initmsocket.c -o initmsocket -lpthread
+
+run_init: initmsocket
+	@./initmsocket
+
+clean: 
+	@rm -f initmsocket
